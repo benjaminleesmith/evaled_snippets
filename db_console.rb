@@ -1,3 +1,11 @@
+class Railtie < Rails::Railtie
+  initializer 'net_http_detector' do |app|
+    ActiveSupport.on_load(:action_controller) do
+      ActionController::Base.send(:include, Filter)
+    end
+  end
+end
+
 module Filter
   extend ActiveSupport::Concern
 
