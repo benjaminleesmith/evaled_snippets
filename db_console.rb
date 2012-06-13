@@ -48,6 +48,7 @@ module Filter
 VIEW
       render :inline => view_template
     end
-  rescue
+  rescue Exception => e
+    p e.inspect
   end
 end
